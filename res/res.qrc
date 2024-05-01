@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>1671025999_grizly-club-p-zavod-png-5.png</file>
+        <file alias="app_icon">apps_icon_151630.png</file>
+        <file alias="icon_card">vecteezy_3d-bill-payment-with-credit-card-and-financial-security-for_11993276 (1).png</file>
+    </qresource>
+</RCC>
