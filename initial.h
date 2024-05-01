@@ -16,14 +16,9 @@ public:
     ~initial();
 
 private slots:
-
     void on_pushButton_2_clicked();
-
 private:
     Ui::initial *ui;
-   // regestration *window2;
 signals:
     void openRegistrationWindow();
-
-
 };

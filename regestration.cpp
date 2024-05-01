@@ -6,8 +6,6 @@ regestration::regestration(QWidget *parent)
     , ui(new Ui::regestration)
 {
     ui->setupUi(this);
-
-
 }
 
 void regestration::closeInitialWindow(initial* initialWindow) {
@@ -18,5 +16,10 @@ void regestration::closeInitialWindow(initial* initialWindow) {
 regestration::~regestration()
 {
     delete ui;
-
 }
+
+void regestration::on_pushButton_2_clicked()
+{
+    this->close();
+}
+

@@ -17,7 +17,9 @@ public slots:
 
  void closeInitialWindow(initial* initialWindow);
 
+private slots:
+    void on_pushButton_2_clicked();
+
 private:
     Ui::regestration *ui;
-
 };
