@@ -20,9 +20,7 @@ initial::~initial()
 
 void initial::on_pushButton_2_clicked()
 {
-    hide();
-    window2 = new regestration(this);
-    window2->setWindowTitle("Регистрация");
-    window2->show();
+ emit openRegistrationWindow();
+
 }
 

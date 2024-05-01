@@ -1,5 +1,6 @@
 #pragma once
 #include <QDialog>
+#include "initial.h"
 namespace Ui {
 class regestration;
 }
@@ -12,9 +13,9 @@ public:
     explicit regestration(QWidget *parent = nullptr);
     ~regestration();
 
-private slots:
+public slots:
 
-
+ void closeInitialWindow(initial* initialWindow);
 
 private:
     Ui::regestration *ui;

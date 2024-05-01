@@ -10,6 +10,11 @@ regestration::regestration(QWidget *parent)
 
 }
 
+void regestration::closeInitialWindow(initial* initialWindow) {
+    // Закрываем только окно "initial", оставляя окно "regestration" открытым
+    initialWindow->hide();
+}
+
 regestration::~regestration()
 {
     delete ui;

@@ -1,5 +1,4 @@
 #pragma once
-#include "regestration.h"
 #include <QDialog>
 
 QT_BEGIN_NAMESPACE
@@ -22,6 +21,9 @@ private slots:
 
 private:
     Ui::initial *ui;
-    regestration *window2;
+   // regestration *window2;
+signals:
+    void openRegistrationWindow();
+
 
 };
