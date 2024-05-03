@@ -6,11 +6,14 @@ regestration::regestration(QWidget *parent)
     , ui(new Ui::regestration)
 {
     ui->setupUi(this);
+    QIcon qic1(":/image/app_icon");
+    this->setWindowIcon(qic1);
 }
 
 void regestration::closeInitialWindow(initial* initialWindow) {
     // Закрываем только окно "initial", оставляя окно "regestration" открытым
     initialWindow->hide();
+
 }
 
 regestration::~regestration()

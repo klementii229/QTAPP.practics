@@ -25,6 +25,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_SOURCES}
         res/res.qrc
         regestration.h regestration.cpp regestration.ui
+        adminpanel.h adminpanel.cpp adminpanel.ui
 
 
 
