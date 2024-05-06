@@ -25,6 +25,5 @@ void initial::on_pushButton_clicked()
 {
     this->login = ui->lineEdit->text();
     this->password = ui->lineEdit_2->text();
-    qDebug() << this->login;
 }
 
