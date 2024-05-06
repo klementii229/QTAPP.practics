@@ -2,8 +2,28 @@
 #include "regestration.h"
 #include <QApplication>
 
+#include <QSqlDatabase>
+#include <QSqlError>
+#include <QDebug>
+
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
+
+
+    QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
+    db.setHostName("localhost");
+    db.setDatabaseName("postgres");
+    db.setUserName("postgres");
+    db.setPassword("admin");
+
+    // if (!db.open()) {
+    //     qDebug() << "Error: " << db.lastError().text();
+
+    // }
+    // if (db.isOpen()) {
+    //     qDebug() << "Подключились";
+    // }
+
 
 
 
