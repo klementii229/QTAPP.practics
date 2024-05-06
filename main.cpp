@@ -28,7 +28,11 @@ int main(int argc, char *argv[]) {
 
 
     initial* w = new initial;
-    std::unique_ptr<regestration> w2 (new regestration);
+    //std::unique_ptr<regestration> w2 (new regestration);
+    regestration* w2 = new regestration;
+    //на счет указателя спорная тема, по сути он не нужен, тк при закрытии приложения вся память освобождается, но с другой
+    //кланг ругается (на рассмотрение в будущем)
+
 
     w->show();
 
@@ -40,7 +44,7 @@ int main(int argc, char *argv[]) {
 
 
     // Соединение сигнала и слота для открытия окна "regestration" и закрытия окна "initial"
-    QObject::connect(w, &initial::openRegistrationWindow, [w, &w2]() {
+    QObject::connect(w, &initial::openRegistrationWindow, [w, w2] {
         w2->setWindowTitle("Регистрация");
         w2->show();
         w->hide();
