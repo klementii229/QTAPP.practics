@@ -27,3 +27,11 @@ void regestration::on_pushButton_2_clicked()
     this->close();
 }
 
+
+void regestration::on_pushButton_clicked()
+{
+    this->login = this->ui->lineEdit->text();
+    this->password = this->ui->lineEdit_2->text();
+    emit RegistrUser();
+}
+
