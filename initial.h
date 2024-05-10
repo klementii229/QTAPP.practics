@@ -24,4 +24,5 @@ private:
     Ui::initial *ui;
 signals:
     void openRegistrationWindow();
+    void LoginUser();
 };

@@ -18,6 +18,7 @@ class MainApp : public QApplication {
 public:
     MainApp(int argc, char *argv[]);
     ~MainApp();
+    bool checkUserStatus(const QString& login, const QString& password);
 private:
     QSqlDatabase db;
     initial* w;
@@ -26,6 +27,6 @@ private:
 private slots:
     void openRegistrationWindow();
     void PushRegistrButton();
-    void PushLoginButton();//в 2 пока не сделаны
+    void PushLoginButton();
 
 };

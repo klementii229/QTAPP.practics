@@ -23,6 +23,7 @@ MainApp::MainApp(int argc, char *argv[]) : QApplication(argc, argv) {
 
     connect(w, &initial::openRegistrationWindow, this, &MainApp::openRegistrationWindow);
     connect(w2, &regestration::RegistrUser, this, &MainApp::PushRegistrButton);
+    connect(w, &initial::LoginUser, this, &MainApp::PushLoginButton);
 }
 
 
@@ -55,10 +56,55 @@ void MainApp::PushRegistrButton()
     }
 }
 
+
+
+
 void MainApp::PushLoginButton()
 {
 
+    qDebug() << "сигнал работае";
+    QString login = w->login;
+    QString password = w->password;
+
+    bool isAdmin = checkUserStatus(login, password);
+
+    if (isAdmin) {
+        // Открываем окно администратора
+        qDebug() << "Это админ";
+    } else {
+        // Открываем окно пользователя
+        qDebug() << "Это обычн пользователь";
+    }
 }
+
+
+
+
+
+
+bool MainApp::checkUserStatus(const QString& login, const QString& password) {
+    QSqlQuery query;
+    query.prepare("SELECT status FROM users WHERE login = :login AND password = :password");
+    query.bindValue(":login", login);
+    query.bindValue(":password", password);
+
+    if (query.exec()) {
+        if (query.next()) {
+            bool isAdmin = query.value(0).toBool();
+            return isAdmin;
+        }
+    }
+
+    return false;
+}
+
+
+
+
+
+
+
+
 
 MainApp::~MainApp() {
     delete w;
