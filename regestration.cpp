@@ -12,7 +12,8 @@ regestration::regestration(QWidget *parent)
 
 void regestration::closeInitialWindow(initial* initialWindow) {
     // Закрываем только окно "initial", оставляя окно "regestration" открытым
-    initialWindow->hide();
+   // initialWindow->hide(); // пока что я наверное буду именно закрывать, а не прятать, а там посмотрим
+    initialWindow->close();
 
 }
 
@@ -24,5 +25,13 @@ regestration::~regestration()
 void regestration::on_pushButton_2_clicked()
 {
     this->close();
+}
+
+
+void regestration::on_pushButton_clicked()
+{
+    this->login = this->ui->lineEdit->text();
+    this->password = this->ui->lineEdit_2->text();
+    emit RegistrUser();
 }
 
