@@ -16,6 +16,7 @@ SOURCES += \
 
 HEADERS += \
     initial.h \
+    main.h \
     regestration.h \
     adminpanel.h
 

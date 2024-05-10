@@ -11,11 +11,15 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Панель администратора</string>
   </property>
   <property name="windowIcon">
    <iconset resource="res/res.qrc">
     <normaloff>:/image/app_icon</normaloff>:/image/app_icon</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);
+font: 10pt &quot;Tahoma&quot;;</string>
   </property>
   <widget class="QWidget" name="centralwidget"/>
   <widget class="QMenuBar" name="menubar">

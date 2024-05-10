@@ -1,56 +1,50 @@
-#include "initial.h"
-#include "regestration.h"
-#include <QApplication>
-#include <memory>
+#include "main.h"
 
-
-#include <QSqlDatabase>
-#include <QSqlError>
-#include <QDebug>
-
-int main(int argc, char *argv[]) {
-    QApplication a(argc, argv);
-
-
-    QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
+MainApp::MainApp(int argc, char *argv[]) : QApplication(argc, argv) {
+    db = QSqlDatabase::addDatabase("QPSQL");
     db.setHostName("localhost");
     db.setDatabaseName("postgres");
     db.setUserName("postgres");
     db.setPassword("admin");
 
-    // if (!db.open()) {
-    //     qDebug() << "Error: " << db.lastError().text();
+    w = new initial;
+    w2 = new regestration;
 
-    // }
-    // if (db.isOpen()) {
-    //     qDebug() << "Подключились";
-    // }
-
-
-    initial* w = new initial;
-    //std::unique_ptr<regestration> w2 (new regestration);
-    regestration* w2 = new regestration;
-    //на счет указателя спорная тема, по сути он не нужен, тк при закрытии приложения вся память освобождается, но с другой
-    //кланг ругается (на рассмотрение в будущем)
 
 
     w->show();
-
-    // Установка заголовка и иконки для окна "initial"
     w->setWindowTitle("Регистрация || Вход");
     QIcon qic1(":/image/app_icon");
     w->setWindowIcon(qic1);
 
-
-
-    // Соединение сигнала и слота для открытия окна "regestration" и закрытия окна "initial"
-    QObject::connect(w, &initial::openRegistrationWindow, [w, w2] {
-        w2->setWindowTitle("Регистрация");
-        w2->show();
-        w->hide();
-    });
+    connect(w, &initial::openRegistrationWindow, this, &MainApp::openRegistrationWindow);
+}
 
 
 
-    return a.exec();
+void MainApp::openRegistrationWindow() {
+    w2->setWindowTitle("Регистрация");
+    w2->show();
+    w->hide();
+}
+
+
+
+
+
+MainApp::~MainApp() {
+    delete w;
+    delete w2;
+}
+
+
+
+
+
+int main(int argc, char *argv[]) {
+
+    MainApp app(argc, argv);
+
+    return app.exec();
+
 }
