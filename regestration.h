@@ -12,7 +12,8 @@ class regestration : public QDialog
 public:
     explicit regestration(QWidget *parent = nullptr);
     ~regestration();
-
+    QString login;
+    QString password;
 public slots:
 
  void closeInitialWindow(initial* initialWindow);
@@ -20,6 +21,10 @@ public slots:
 private slots:
     void on_pushButton_2_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::regestration *ui;
+signals:
+    void RegistrUser();
 };
