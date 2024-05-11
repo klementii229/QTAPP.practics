@@ -10,7 +10,7 @@
 #include "initial.h"
 #include "regestration.h"
 #include <QMessageBox>
-
+#include "adminpanel.h"
 
 
 class MainApp : public QApplication {
@@ -24,6 +24,7 @@ private:
     initial* w;
     regestration* w2;
     QSqlQuery query;
+    adminpanel * admpanel;
 private slots:
     void openRegistrationWindow();
     void PushRegistrButton();

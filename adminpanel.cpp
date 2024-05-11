@@ -13,3 +13,5 @@ adminpanel::~adminpanel()
 {
     delete ui;
 }
+
+

@@ -62,15 +62,15 @@ void MainApp::PushRegistrButton()
 void MainApp::PushLoginButton()
 {
 
-    qDebug() << "сигнал работае";
     QString login = w->login;
     QString password = w->password;
 
     bool isAdmin = checkUserStatus(login, password);
 
     if (isAdmin) {
-        // Открываем окно администратора
-        qDebug() << "Это админ";
+        admpanel = new adminpanel;
+        w->close();
+        admpanel->show();
     } else {
         // Открываем окно пользователя
         qDebug() << "Это обычн пользователь";
