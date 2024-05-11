@@ -1,4 +1,5 @@
 #include "adminpanel.h"
+#include "main.h"
 #include "ui_adminpanel.h"
 
 adminpanel::adminpanel(QWidget *parent)
@@ -6,11 +7,8 @@ adminpanel::adminpanel(QWidget *parent)
     , ui(new Ui::adminpanel)
 {
     ui->setupUi(this);
-    this->setWindowTitle("Панель администратора");//иконку я уже поставил
-     tableView = new QTableView;
 
 }
-
 adminpanel::~adminpanel()
 {
     delete ui;

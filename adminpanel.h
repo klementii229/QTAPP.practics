@@ -1,8 +1,11 @@
 #pragma once
-#include "qsqltablemodel.h"
 #include <QTableView>
 #include <QMainWindow>
-
+#include <QSqlDatabase>
+#include <QSqlError>
+#include <QSqlQuery>
+#include <QDebug>
+#include "qsqlquerymodel.h"
 namespace Ui {
 class adminpanel;
 }
@@ -14,7 +17,8 @@ class adminpanel : public QMainWindow
 public:
     explicit adminpanel(QWidget *parent = nullptr);
     ~adminpanel();
-     QTableView *tableView;
+    QSqlQuery query;
+    QSqlDatabase db2;
 private:
     Ui::adminpanel *ui;
 };
