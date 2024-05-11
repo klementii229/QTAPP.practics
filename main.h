@@ -12,7 +12,8 @@
 #include <QMessageBox>
 #include "adminpanel.h"
 #include "userpanel.h"
-
+#include "qboxlayout.h"
+#include "qpushbutton.h"
 
 class MainApp : public QApplication {
     Q_OBJECT
@@ -32,5 +33,7 @@ private slots:
     void openRegistrationWindow();
     void PushRegistrButton();
     void PushLoginButton();
+    void AddUser();
+    void DeleteUser();
 
 };

@@ -14,6 +14,7 @@ class adminpanel : public QMainWindow
 public:
     explicit adminpanel(QWidget *parent = nullptr);
     ~adminpanel();
+     QTableView *tableView;
 private:
     Ui::adminpanel *ui;
 };

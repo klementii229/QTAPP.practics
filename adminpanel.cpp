@@ -7,6 +7,7 @@ adminpanel::adminpanel(QWidget *parent)
 {
     ui->setupUi(this);
     this->setWindowTitle("Панель администратора");//иконку я уже поставил
+     tableView = new QTableView;
 
 }
 
