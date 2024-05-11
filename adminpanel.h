@@ -1,5 +1,6 @@
 #pragma once
-
+#include "qsqltablemodel.h"
+#include <QTableView>
 #include <QMainWindow>
 
 namespace Ui {
@@ -13,7 +14,6 @@ class adminpanel : public QMainWindow
 public:
     explicit adminpanel(QWidget *parent = nullptr);
     ~adminpanel();
-
 private:
     Ui::adminpanel *ui;
 };

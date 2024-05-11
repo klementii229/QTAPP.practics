@@ -67,13 +67,24 @@ void MainApp::PushLoginButton()
 
     bool isAdmin = checkUserStatus(login, password);
 
+    admpanel = new adminpanel;
+
     if (isAdmin) {
-        admpanel = new adminpanel;
+
         w->close();
+        QSqlQuery query (db);
+        query.prepare("SELECT * FROM users");
+        tablem = new QSqlTableModel(this, db);
+        tablem->setTable("Список пользователей:");
+        tablem->select();
+
+
+
         admpanel->show();
     } else {
-        // Открываем окно пользователя
-        qDebug() << "Это обычн пользователь";
+        userpanel = new UserPanel;
+        w->close();
+        userpanel->show();
     }
 }
 

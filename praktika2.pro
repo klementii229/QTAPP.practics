@@ -12,18 +12,21 @@ SOURCES += \
     main.cpp \
     initial.cpp \
     regestration.cpp \
-    adminpanel.cpp
+    adminpanel.cpp \
+    userpanel.cpp
 
 HEADERS += \
     initial.h \
     main.h \
     regestration.h \
-    adminpanel.h
+    adminpanel.h \
+    userpanel.h
 
 FORMS += \
     initial.ui \
     regestration.ui \
-    adminpanel.ui
+    adminpanel.ui \
+    userpanel.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

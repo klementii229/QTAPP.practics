@@ -7,11 +7,10 @@ adminpanel::adminpanel(QWidget *parent)
 {
     ui->setupUi(this);
     this->setWindowTitle("Панель администратора");//иконку я уже поставил
+
 }
 
 adminpanel::~adminpanel()
 {
     delete ui;
 }
-
-

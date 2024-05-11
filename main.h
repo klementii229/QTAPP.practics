@@ -11,6 +11,7 @@
 #include "regestration.h"
 #include <QMessageBox>
 #include "adminpanel.h"
+#include "userpanel.h"
 
 
 class MainApp : public QApplication {
@@ -25,6 +26,8 @@ private:
     regestration* w2;
     QSqlQuery query;
     adminpanel * admpanel;
+    UserPanel *userpanel;
+    QSqlTableModel * tablem;
 private slots:
     void openRegistrationWindow();
     void PushRegistrButton();
