@@ -1,5 +1,4 @@
 #include "adminpanel.h"
-#include "main.h"
 #include "ui_adminpanel.h"
 
 adminpanel::adminpanel(QWidget *parent)
@@ -7,7 +6,6 @@ adminpanel::adminpanel(QWidget *parent)
     , ui(new Ui::adminpanel)
 {
     ui->setupUi(this);
-
 }
 adminpanel::~adminpanel()
 {
