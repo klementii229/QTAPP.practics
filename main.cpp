@@ -119,8 +119,6 @@ MainApp::~MainApp() {
 
 
 
-
-
 int main(int argc, char *argv[]) {
 
 

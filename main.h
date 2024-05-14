@@ -23,7 +23,6 @@ public:
 private:
     initial* w;
     regestration* w2;
-    //QSqlQuery *query;
     QSqlDatabase db;
     adminpanel * admpanel;
     UserPanel *userpanel;
