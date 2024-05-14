@@ -3,13 +3,11 @@
 
 adminpanel::adminpanel(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::adminpanel)
+    , uiadpanel(new Ui::adminpanel)
 {
-    ui->setupUi(this);
-    this->setWindowTitle("Панель администратора");//иконку я уже поставил
+    uiadpanel->setupUi(this);
 }
-
 adminpanel::~adminpanel()
 {
-    delete ui;
+    delete uiadpanel;
 }
