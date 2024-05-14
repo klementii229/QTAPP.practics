@@ -3,11 +3,11 @@
 
 adminpanel::adminpanel(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::adminpanel)
+    , uiadpanel(new Ui::adminpanel)
 {
-    ui->setupUi(this);
+    uiadpanel->setupUi(this);
 }
 adminpanel::~adminpanel()
 {
-    delete ui;
+    delete uiadpanel;
 }

@@ -31,7 +31,7 @@ MainApp::MainApp(int argc, char *argv[]) : QApplication(argc, argv) {
 void MainApp::openRegistrationWindow() {
     w2->setWindowTitle("Регистрация");
     w2->show();
-    w->hide();   
+    w->hide();
 }
 
 
@@ -69,11 +69,19 @@ void MainApp::PushLoginButton()
     bool isAdmin = checkUserStatus(login, password);
 
     if (isAdmin) {
-
-        // db.close();
-        //db.removeDatabase("qt_sql_default_connection");
         admpanel = new adminpanel;
         w->close();
+
+        QSqlQuery query1(db);
+        query1.exec("SELECT * FROM users;");
+
+        modal = new QSqlTableModel(this, db);
+        modal->setTable("users");
+        modal->select();
+        if (ui2 != nullptr) {
+            admpanel->uiadpanel->tableView->setModel(modal);
+        }
+
 
         admpanel->show();
     } else {
@@ -105,6 +113,7 @@ bool MainApp::checkUserStatus(const QString& login, const QString& password) {
 MainApp::~MainApp() {
     delete w;
     delete w2;
+    delete admpanel;
     db.close();
 }
 
