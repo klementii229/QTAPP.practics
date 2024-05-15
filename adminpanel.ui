@@ -22,9 +22,17 @@
 font: 10pt &quot;Tahoma&quot;;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(214, 214, 214);
+    </string>
+   </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QTableView" name="tableView"/>
+     <widget class="QTableView" name="tableView">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+     </widget>
     </item>
     <item>
      <spacer name="horizontalSpacer_2">
@@ -42,7 +50,7 @@ font: 10pt &quot;Tahoma&quot;;</string>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="delete_Button">
         <property name="styleSheet">
          <string notr="true">QPushButton{
 color: rgb(0, 0, 0);
@@ -81,7 +89,7 @@ background-color: rgb(226, 225, 230);
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="newuserButton">
         <property name="styleSheet">
          <string notr="true">QPushButton{
 color: rgb(0, 0, 0);

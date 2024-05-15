@@ -9,7 +9,7 @@ MainApp::MainApp(int argc, char *argv[]) : QApplication(argc, argv) {
 
     w = new initial;
     w2 = new regestration;
-
+    admpanel = new adminpanel;
 
     if (!db.open()) {
         qDebug() << "Failed to open database:" << db.lastError().text();
@@ -24,6 +24,9 @@ MainApp::MainApp(int argc, char *argv[]) : QApplication(argc, argv) {
     connect(w, &initial::openRegistrationWindow, this, &MainApp::openRegistrationWindow);
     connect(w2, &regestration::RegistrUser, this, &MainApp::PushRegistrButton);
     connect(w, &initial::LoginUser, this, &MainApp::PushLoginButton);
+    connect(admpanel, &adminpanel::addUser, this, &MainApp::AddUser);
+    connect(admpanel, &adminpanel::deleteUser, this, &MainApp::DeleteUser);
+
 }
 
 
@@ -69,7 +72,6 @@ void MainApp::PushLoginButton()
     bool isAdmin = checkUserStatus(login, password);
 
     if (isAdmin) {
-        admpanel = new adminpanel;
         w->close();
 
         QSqlQuery query1(db);
@@ -90,6 +92,20 @@ void MainApp::PushLoginButton()
         userpanel->show();
     }
 }
+
+void MainApp::DeleteUser() {
+    modal->removeRow(admpanel->row);
+
+}
+
+
+
+void MainApp::AddUser()
+{
+    modal->insertRow(modal->rowCount());
+
+}
+
 
 
 

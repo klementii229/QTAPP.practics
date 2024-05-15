@@ -33,4 +33,6 @@ private slots:
     void openRegistrationWindow();
     void PushRegistrButton();
     void PushLoginButton();
+    void DeleteUser();
+    void AddUser();
 };
