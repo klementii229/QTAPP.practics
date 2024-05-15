@@ -38,7 +38,6 @@ void MainApp::openRegistrationWindow() {
 }
 
 
-
 void MainApp::PushRegistrButton()
 {
     QString login = w2->login;
@@ -60,8 +59,6 @@ void MainApp::PushRegistrButton()
         QMessageBox::information(w2, "Успех!", "Вы успешно зарегестрировались!", QMessageBox::Ok);
     }
 }
-
-
 
 
 void MainApp::PushLoginButton()
@@ -95,19 +92,15 @@ void MainApp::PushLoginButton()
 
 void MainApp::DeleteUser() {
     modal->removeRow(admpanel->row);
+    modal->select();
 
 }
-
-
 
 void MainApp::AddUser()
 {
     modal->insertRow(modal->rowCount());
 
 }
-
-
-
 
 bool MainApp::checkUserStatus(const QString& login, const QString& password) {
     QSqlQuery query;
@@ -130,6 +123,7 @@ MainApp::~MainApp() {
     delete w;
     delete w2;
     delete admpanel;
+    delete modal;
     db.close();
 }
 

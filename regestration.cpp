@@ -11,10 +11,8 @@ regestration::regestration(QWidget *parent)
 }
 
 void regestration::closeInitialWindow(initial* initialWindow) {
-    // Закрываем только окно "initial", оставляя окно "regestration" открытым
-   // initialWindow->hide(); // пока что я наверное буду именно закрывать, а не прятать, а там посмотрим
-    initialWindow->close();
 
+    initialWindow->close();
 }
 
 regestration::~regestration()
