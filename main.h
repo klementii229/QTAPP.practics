@@ -11,6 +11,7 @@
 #include <QMessageBox>
 #include "adminpanel.h"
 #include "userpanel.h"
+#include "ui_userpanel.h"
 #include <QTableView>
 #include "QSqlTableModel"
 
@@ -23,15 +24,18 @@ public:
 private:
     initial* w;
     regestration* w2;
-    //QSqlQuery *query;
     QSqlDatabase db;
     adminpanel * admpanel;
     UserPanel *userpanel;
     QSqlTableModel *modal;
 
-    Ui::adminpanel *ui2;
+
 private slots:
     void openRegistrationWindow();
     void PushRegistrButton();
     void PushLoginButton();
+    void DeleteUser();
+    void AddUser();
+    void DeleteLine();
+    void AddLine();
 };

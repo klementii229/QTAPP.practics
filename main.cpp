@@ -1,5 +1,6 @@
 #include "main.h"
 
+
 MainApp::MainApp(int argc, char *argv[]) : QApplication(argc, argv) {
     db = QSqlDatabase::addDatabase("QPSQL");
     db.setHostName("localhost");
@@ -9,7 +10,8 @@ MainApp::MainApp(int argc, char *argv[]) : QApplication(argc, argv) {
 
     w = new initial;
     w2 = new regestration;
-
+    admpanel = new adminpanel;
+    userpanel = new UserPanel;
 
     if (!db.open()) {
         qDebug() << "Failed to open database:" << db.lastError().text();
@@ -24,6 +26,11 @@ MainApp::MainApp(int argc, char *argv[]) : QApplication(argc, argv) {
     connect(w, &initial::openRegistrationWindow, this, &MainApp::openRegistrationWindow);
     connect(w2, &regestration::RegistrUser, this, &MainApp::PushRegistrButton);
     connect(w, &initial::LoginUser, this, &MainApp::PushLoginButton);
+    connect(admpanel, &adminpanel::addUser, this, &MainApp::AddUser);
+    connect(admpanel, &adminpanel::deleteUser, this, &MainApp::DeleteUser);
+    connect(userpanel, &UserPanel::addLine, this, &MainApp::AddLine);
+    connect(userpanel, &UserPanel::deleteLine, this, &MainApp::DeleteLine);
+
 }
 
 
@@ -33,7 +40,6 @@ void MainApp::openRegistrationWindow() {
     w2->show();
     w->hide();
 }
-
 
 
 void MainApp::PushRegistrButton()
@@ -59,8 +65,6 @@ void MainApp::PushRegistrButton()
 }
 
 
-
-
 void MainApp::PushLoginButton()
 {
     QString login = w->login;
@@ -69,7 +73,6 @@ void MainApp::PushLoginButton()
     bool isAdmin = checkUserStatus(login, password);
 
     if (isAdmin) {
-        admpanel = new adminpanel;
         w->close();
 
         QSqlQuery query1(db);
@@ -78,20 +81,41 @@ void MainApp::PushLoginButton()
         modal = new QSqlTableModel(this, db);
         modal->setTable("users");
         modal->select();
-        if (ui2 != nullptr) {
-            admpanel->uiadpanel->tableView->setModel(modal);
-        }
-
-
+        admpanel->uiadpanel->tableView->setModel(modal);
         admpanel->show();
-    } else {
-        userpanel = new UserPanel;
+
+    } else if (!isAdmin) {
         w->close();
+        QSqlQuery query1(db);
+        query1.exec("SELECT * FROM warehouse;");
+         modal = new QSqlTableModel(this, db);
+        modal->setTable("warehouse");
+        modal->select();
+
+        userpanel->ui->tableView->setModel(modal);
         userpanel->show();
     }
 }
 
+void MainApp::DeleteUser() {
+    modal->removeRow(admpanel->row);
+    modal->select();
+}
 
+void MainApp::AddUser()
+{
+    modal->insertRow(modal->rowCount());
+}
+
+void MainApp::DeleteLine() {
+    modal->removeRow(userpanel->row);
+    modal->select();
+}
+
+void MainApp::AddLine()
+{
+    modal->insertRow(modal->rowCount());
+}
 
 bool MainApp::checkUserStatus(const QString& login, const QString& password) {
     QSqlQuery query;
@@ -113,11 +137,10 @@ bool MainApp::checkUserStatus(const QString& login, const QString& password) {
 MainApp::~MainApp() {
     delete w;
     delete w2;
+    delete userpanel;
     delete admpanel;
     db.close();
 }
-
-
 
 
 
