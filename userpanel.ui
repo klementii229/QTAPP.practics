@@ -1,31 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>adminpanel</class>
- <widget class="QMainWindow" name="adminpanel">
+ <class>UserPanel</class>
+ <widget class="QMainWindow" name="UserPanel">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>640</width>
-    <height>513</height>
+    <height>480</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Панель администратора</string>
+   <string>Управление складом</string>
   </property>
   <property name="windowIcon">
    <iconset resource="res/res.qrc">
     <normaloff>:/image/app_icon</normaloff>:/image/app_icon</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(255, 255, 255);
-font: 10pt &quot;Tahoma&quot;;</string>
+   <string notr="true">background-color: rgb(231, 231, 231);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(214, 214, 214);
-    </string>
-   </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QTableView" name="tableView">
@@ -50,7 +45,7 @@ font: 10pt &quot;Tahoma&quot;;</string>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QPushButton" name="delete_Button">
+       <widget class="QPushButton" name="deleteButton">
         <property name="styleSheet">
          <string notr="true">QPushButton{
 color: rgb(0, 0, 0);
@@ -71,7 +66,7 @@ background-color: rgb(226, 225, 230);
 </string>
         </property>
         <property name="text">
-         <string>Удалить пользователя</string>
+         <string>Удалить запись</string>
         </property>
        </widget>
       </item>
@@ -89,7 +84,7 @@ background-color: rgb(226, 225, 230);
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="newuserButton">
+       <widget class="QPushButton" name="addButtom">
         <property name="styleSheet">
          <string notr="true">QPushButton{
 color: rgb(0, 0, 0);
@@ -110,7 +105,7 @@ background-color: rgb(226, 225, 230);
 </string>
         </property>
         <property name="text">
-         <string>Добавить пользователя</string>
+         <string>Добавить запись</string>
         </property>
        </widget>
       </item>

@@ -3,13 +3,33 @@
 
 adminpanel::adminpanel(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::adminpanel)
+    , uiadpanel(new Ui::adminpanel)
 {
-    ui->setupUi(this);
-    this->setWindowTitle("Панель администратора");//иконку я уже поставил
+    uiadpanel->setupUi(this);
+      uiadpanel->statusbar->showMessage("Чтоб удалить пользователя, нажмите на пустое место и кнопку удалить", 22000);
 }
-
 adminpanel::~adminpanel()
 {
-    delete ui;
+    delete uiadpanel;
 }
+
+
+void adminpanel::on_delete_Button_clicked()
+{
+    emit deleteUser();
+     uiadpanel->statusbar->showMessage("Пользователь удален!", 6000);
+}
+
+
+void adminpanel::on_newuserButton_clicked()
+{
+    emit addUser();
+    uiadpanel->statusbar->showMessage("Пользователь добавлен!", 6000);
+}
+
+
+void adminpanel::on_tableView_clicked(const QModelIndex &index)
+{
+    row = index.row();
+}
+
